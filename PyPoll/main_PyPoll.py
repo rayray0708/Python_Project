@@ -5,6 +5,7 @@ import os
 csvpath_pypoll= os.path.join("Resources","election_data.csv")
 # print(csvpath_pypoll)
 
+#set counters
 Total_vote = 0
 Stockham_count = 0
 DeGette_count = 0
@@ -16,6 +17,7 @@ DeGette = "Diana DeGette"
 Doane = "Raymon Anthony Doane"
 # print(Doane)
 
+#open the file path and save it as csv_pypoll_file
 with open(csvpath_pypoll, 'r') as csv_pypoll_file:
     csv_pypoll_reader = csv.reader(csv_pypoll_file, delimiter= ",")
     # print(csv_pypoll_reader)
@@ -23,9 +25,11 @@ with open(csvpath_pypoll, 'r') as csv_pypoll_file:
     # print(header_pypoll)
     
     #start the for-loop here
+    #for each row in the csv reader file
     for row in csv_pypoll_reader:
+        #add 1 vote to the total number of votes
         Total_vote += 1
-
+        
         #if last value matches with variable Stockham's, then add 1 vote for Stockham
         if row[2] == Stockham:
             Stockham_count +=1
@@ -42,6 +46,7 @@ with open(csvpath_pypoll, 'r') as csv_pypoll_file:
 # print(Stockham_count)
 # print(DeGette_count)
 # print(Doane_count)
+##checking if these values are correct
 # print(Stockham_count/Total_vote)
 # print(DeGette_count/Total_vote)
 # print(Doane_count/Total_vote)
@@ -58,7 +63,7 @@ DeGette_percentage = "{:.3%}".format(DeGette_count/Total_vote)
 Doane_percentage = "{:.3%}".format(Doane_count/Total_vote)
 # print(Doane_percentage)
 
-
+#replace the percentage and vote counts for each of the candidate with calculated values
 output = f"""
 Election Results
 -------------------------
@@ -76,5 +81,6 @@ print(output)
 
 file_txt_pypoll= "Analysis/pyPoll.txt"
 
+#output the calulate values in the file pypoll_txt in the Analysis folder
 with open(file_txt_pypoll, 'w') as pypoll_txt:
     pypoll_txt.write(output)
