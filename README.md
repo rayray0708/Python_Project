@@ -14,8 +14,8 @@ To see the results, navigate to the Analysis folder. To see the code, navigate t
 
 ## Installations:
 The following have been installed for this project:
-1. Python
-2. VSCode
+1. `Python`
+2. `VSCode`
 
 ### Budget data analysis
 In this section, I created a Python script that analyses the records to calculate each of the following values:
